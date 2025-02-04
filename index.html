@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="images/vorn.png" type="vorn_logo" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Human Background Remover</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.2.0"></script>
+  </head>
+  <body>
+    <div id="drag-overlay" class="hidden">
+      <div class="overlay-content">
+        <div class="upload-icon">📁</div>
+        <p>Drop your image here</p>
+      </div>
+    </div>
+
+    <header>
+      <div class="logo">
+        <img src="images/vorn_logo.jpg" alt="" />
+        <span>Vorn.bg</span>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="hero-content">
+        <h1>Remove Image<br />Background</h1>
+        <p class="subtitle">Remove Background behind a Person</span></p>
+      </div>
+
+      <div class="upload-section">
+        <div id="drop-area">
+          <div class="upload-content">
+            <button class="upload-button" onclick="document.getElementById('fileInput').click()">Upload Image</button>
+            <p class="upload-text">or drop a file</p>
+            <input type="file" id="fileInput" accept="image/*" hidden />
+          </div>
+        </div>
+      </div>
+
+      <div id="preview-container" class="hidden">
+        <div class="image-container">
+          <img id="preview" alt="Preview" />
+          <div class="loading-overlay hidden">
+            <div class="loading-content">
+              <div class="loading-bar">
+                <div class="loading-progress"></div>
+              </div>
+              <p class="loading-text">Processing image... <span class="loading-percentage">0%</span></p>
+              <p class="loading-step"></p>
+            </div>
+          </div>
+        </div>
+        <button id="remove-bg" class="action-button">Remove Background</button>
+      </div>
+
+      <div id="result-container" class="hidden">
+        <div class="image-container">
+          <canvas id="result"></canvas>
+        </div>
+        <div class="button-group">
+          <button id="download" class="action-button">Download PNG</button>
+          <button id="try-another" class="action-button secondary">Try Another Image</button>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+    <script src="features.js"></script>
+  </body>
+</html>
